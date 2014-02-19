@@ -1,0 +1,38 @@
+/*******************************************************************************
+
+Title: SIPMB One Day Service STIKESMB
+Date: 19 Juni 2013
+Author: Muslihul Aqqad (http://muslih.github.io)
+
+********************************************************************************
+
+	1  zeengrid
+	2  general
+	3  header
+	4  section
+	5  aside
+	6  footer
+	7  fontawesome
+
+*******************************************************************************/
+// main
+@import "compass/css3";
+@import "partials/variable";
+@import "partials/mixins";
+@import "partials/settings";
+
+//  zeen grid
+@import 'partials/zeen';
+
+// style umum
+@import 'partials/general';
+
+// style untuk fontAwesome
+@import "partials/general_zeenicons";
+
+// style untuk responsive
+@import "partials/responsive";
+
+
+
+

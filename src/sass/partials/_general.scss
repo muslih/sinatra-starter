@@ -1,0 +1,453 @@
+// general
+body{
+	font-family: arial;
+}
+
+@include font-face("News Cycle", font-files("mainfont.woff"));
+
+a{
+	@include transition-duration(0.5s);
+	color:#444;
+	text-decoration:none;
+}
+
+.tombol{
+	@include tombol;
+}
+
+.homeflash{
+	right: 0px;
+	top: 80px;
+	position: absolute;
+	width: 340px;
+}
+
+.fixaside{
+	width: 306px;
+	position: fixed;
+	top: 0px;
+}
+
+nav{
+	@extend .kanan;
+	ul{
+		margin:0;
+		padding:0;
+	}
+	li{
+		margin-right: 5px;
+		float: left;
+		list-style-type: none;
+	}
+	a{
+		padding:10px;
+		letter-spacing: 1px;
+		display: block;
+		text-transform: uppercase;
+		font-size: $mainFontSize;
+		&:hover{
+			color: #444;
+			background:#fff;
+		}
+	}
+}
+p{
+	font-size:$mainFontSize;
+	line-height: 24px;
+	font-size: 1em;
+}
+
+.kiri{
+	float:left;
+}
+
+.kanan{
+	float:right;
+}
+.tkiri{
+	text-align:left;
+}
+
+.tkanan{
+	text-align:right;
+}
+.ttengah{
+	text-align:center;
+}
+.ckiri{
+	clear:left;
+}
+
+.ckanan{
+	clear:right;
+}
+
+.kk{
+	clear:both;
+}
+
+
+
+.error{
+	padding:10px;
+	margin:10px 0;
+	background:darken(red,10%);
+	color:#fff;
+	p{
+		margin:0;
+	}
+}
+.sukses{
+	@extend .error;
+	background:green;
+}
+
+.warning{
+	@extend .error;
+	background:rgb(250, 140, 0);
+}
+// header
+header{
+	overflow: hidden;
+	padding-top:15px;
+	padding-bottom:15px;
+	background:image-url('mainblog.jpg') top center no-repeat;
+	background-size:cover;
+	background-attachment:fixed;
+	color:#fff;
+	a{
+		color:inherit;
+		font-family: $mainFont;
+	}
+	
+	h1{
+		letter-spacing: 1px;
+		margin:0;
+		@extend .kiri;
+		span{
+			font-weight: normal;
+		}
+	}
+	blockquote{
+		font-family: $mainFont;
+		overflow: hidden;
+		padding: 150px 0;
+		clear: both;
+		margin: 0;
+		font-size: 45px;
+		span{
+			display: block;
+			// line-height: 50px;
+			// background: rgba(#444, 0.4);
+			float: left;
+			// margin-bottom: 20px;
+			// padding: 5px 10px;
+			clear: left;
+		}
+	}
+}
+.login{
+	background:rgba(#fff,0.3);
+	padding:20px;
+	width:300px;
+	position: absolute;
+	right:0px;
+	top:200px;
+	h2{
+		font-family: $mainFont;
+		letter-spacing: 1px;
+		margin-top:0;
+		margin-bottom: 15px;
+		font-weight: normal;
+	}
+	input{
+		padding:10px;
+		margin-bottom: 10px;
+		border:0px;
+		display: block;
+		width: 95%;
+	}
+	button{
+		@include tombol($warna:#fff,$text: #444);
+	}
+}
+
+// section
+section{
+	padding:20px 0;
+	overflow:hidden;
+	a{
+		&:hover{
+			color:$merah;
+		}
+	}
+	h2{
+		font-size: 2em;
+		color: #000;
+		letter-spacing: 2px;
+		margin-bottom:0;
+		font-weight: normal;
+		// text-transform: uppercase;
+		font-family: $mainFont;
+		&:first-child{
+			margin-top:0;
+		}
+	}
+
+	p{
+		margin-top: 0;
+		letter-spacing: 1px;
+		font-family: $mainFont;
+
+	}
+	li{
+		@extend p;
+	}
+	.meta{
+		font-size: 13px;
+		line-height: 25px;
+		color: lighten($mainColor, 20%);
+		.tag{
+			// @include border-radius(5px);
+			&:before{
+				content:"#";
+			}
+		}
+	}
+	.cari{
+		padding: 0px;
+		border: solid 1px #ddd;
+		position: absolute;
+		top: 10px;
+		right: 0;
+		input{
+			border:0px;
+		}
+		button{
+			padding: 10px 5px 5px;
+			line-height: 15px;
+		}
+	}
+}
+
+.submenu{
+	list-style-type: none;
+	margin-top:15px;
+	padding:0;
+	li{
+		cursor: pointer;
+		line-height: 11px;
+		display: inline-table;
+		@include tombol;
+
+	}
+	.aktif{
+			background:lighten($merah, 20%);
+			&:hover{
+				background:lighten($merah, 20%);
+			}
+		}
+}
+
+.menusamping{
+	background:$merah;
+	padding:0;
+	li{
+		list-style-type: none;
+		border-bottom:solid 1px lighten($merah, 20%);
+		&:last-child{
+			border-bottom:0;
+		}
+	}
+	a{
+		color:#fff;
+		display: block;
+		padding:5px 10px;
+		&.aktif{
+			background:lighten($merah, 5%);
+		}
+		&:hover{
+			background:lighten($merah, 10%);
+			color: #fff;
+		}
+		&.aktif{
+			background:lighten($merah, 10%);
+			color: #fff;
+		}
+		span{
+			float: right;
+			background: $merahTua;
+			padding: 0px 5px;
+			font-size: 12px;
+		}
+	}
+}
+
+table{
+	width:100%;
+}
+
+th{
+	letter-spacing:1px;
+	background: $merah;
+	color:#fff;
+}
+tr{
+	@include transition-duration(0.5s);
+	&:first-child{
+		border-top:solid 1px #ddd;
+	}
+	&:hover{
+		background:lighten(#eee,5%);
+	}
+	border-bottom:solid 1px #ddd;
+}
+
+th,td{
+	text-align:left;
+	font-family:$mainFont;
+	padding:5px;
+	a{
+		// color:$merahTua;
+	}
+}
+
+input{
+	&.edit{
+		background:transparent;
+		border-bottom:dashed 1px #444;
+		border-top:none;
+		border-left:none;
+		border-right:none;
+		padding:0 5px;
+		&:focus{
+			outline: none;
+			// border:solid 1px $merah;
+		}
+	}
+}
+
+.form-input{
+	label,input, select,textarea{
+		display: block;
+		font-family: $mainFont;
+		line-height: 24px;
+		@extend p;
+	}
+	input,textarea{
+		@include transition-duration(0.5s);
+		padding:5px;
+		// font-size: 13px;
+		// padding:5px 10px;
+		border:solid 1px #ddd;
+		margin-bottom: 10px;
+		// border:0px;
+		-webkit-appearance: none;
+		&:focus{
+			outline: none;
+			border:solid 1px $merah;
+		}
+	}
+	input{
+		min-width: 200px;
+	}
+	textarea{
+		min-width: 300px;
+		min-height: 100px;
+
+	}
+	label{
+		padding:5px 5px 5px 0;
+	}
+
+	select{
+		padding:5px;
+		margin-bottom: 10px;
+		min-width: 200px;
+		option{
+			// padding:5px;
+		}
+	}
+	button{
+		@include tombol;
+	}
+}
+
+// footer
+footer{
+	color: lighten($mainColor,25%);
+	font-family:$mainFont;
+	text-transform:uppercase;
+	letter-spacing: 1px;
+	p{
+		margin-top: 0;
+		font-size: 13px;
+	}
+	li{
+		margin-right:10px;
+		a{
+			font-size: 13px;
+			padding:0;
+			color: inherit;
+		}
+	}
+}
+
+
+// bantuan ujian
+.bantuan{
+	display:none;
+	.keluar{
+		cursor: pointer;
+		top: 15px;
+		right: 15px;
+		z-index: 100;
+		position: fixed;
+		color: #fff;
+		// background: #fff;
+		// border: solid 1px #444;
+		padding: 7px 10px;
+		// border-radius: 50%;
+	}
+}
+.bg_bantuan{
+	position: fixed;
+	z-index: 90;
+	background: rgba(0, 0, 0, 0.66);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.kotak_bantuan{
+	position: fixed;
+	z-index: 99;
+	background: #fff;
+	left: 20%;
+	right: 20%;
+	top: 10%;
+	bottom: 10%;
+	padding: 15px;
+	overflow-y: auto;
+
+}
+
+#mce_15-body button {
+	background: transparent;
+}
+
+.btn-primary {
+	color: #fff;
+	background: #466792;
+	font-weight: bolder;
+	padding: 0px 8px 3px;
+	border-radius: 100%;
+}
+
+.kuitansi{
+	font-weight: bold;
+	background: #ddd;
+	padding: 10px;
+	width: 90px;
+	letter-spacing: 2px;
+}

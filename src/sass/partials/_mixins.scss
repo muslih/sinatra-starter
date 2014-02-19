@@ -1,0 +1,30 @@
+@mixin tombol($warna:$merah,$text: #fff){
+	@include transition-duration(1s);
+	@include transition-property(background);
+	font-size: 15px;
+	color:$text;
+	border: none;
+	// @include border-radius(5px);
+	background: $warna;
+	padding: 10px 15px 10px 15px;
+	// @include box-shadow($bayangan 0 0 0 10px);
+	// border-bottom: solid 3px darken($warna,20%);
+
+	&:hover{
+		@include transition-duration(0.5s);
+		@include transition-property(background);
+		background: darken($warna,10%);
+		// @include box-shadow(darken($mainColor,35%) 0 -3px 0 inset);
+		// border-bottom: solid 3px darken($mainColor,35%);
+	}
+	&:active{
+		// margin-top: 2px;
+		// padding: 10px 15px 8px 15px;
+	// 	padding:12px 15px 8px 15px;
+	// 	// background: red;
+		// border-bottom: solid 1px darken($warna,35%);
+	// 	@include box-shadow(darken($mainColor,35%) 0 -1px 0 inset);
+	}
+}
+
+
