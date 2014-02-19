@@ -1,38 +1,3 @@
-
-
-(($) ->
-  $.fn.shuffle = ->
-    allElems = @get()
-    getRandom = (max) ->
-      Math.floor Math.random() * max
-
-    shuffled = $.map(allElems, ->
-      random = getRandom(allElems.length)
-      randEl = $(allElems[random]).clone(true)[0]
-      allElems.splice random, 1
-      randEl
-    )
-    @each (i) ->
-      $(this).replaceWith $(shuffled[i])
-      return
-
-    $ shuffled
-
-  return
-) jQuery
-
-# acak soal
-$ ->
-	$(".soal ol li").shuffle()
-	# $(".soal ol li").each ->
-	# 	$(this).hide()
-	# 	return
-
-	# min = 0
-	# max = $(".soal ol li").length
-	# randomLi = Math.floor(Math.random() * (max - min)) + min
-	# $(".soal ol li").eq(randomLi).show()
-
 $ ->
 	navsoal = $('aside>ul.ujian').children('li').children('a')
 	soal = $('.soal').children().children('ol').children()
@@ -139,31 +104,6 @@ $ ->
 			aside.removeClass('fixaside')
 	)
 
-$ ->
-	# $('.login').hide()
-	# $('.logbtn').click( ->
-	# 	$('.login').fadeToggle()
-	# )
-
-
-$ ->
-	sub = $('.submenu')
-	kon = sub.siblings('article')
-	navtab = sub.children()
-
-	navtab.first().addClass('aktif')
-	kon.hide()
-	kon.first().show()
-
-	navtab.on 'click',(event) ->
-		$('.kon' + $(@).attr('class')).slideDown()
-		$('.kon' + $(@).attr('class')).siblings('article').slideUp()	
-		
-		navtab.removeClass('aktif')
-		$(@).addClass('aktif')
-	
-
-# hasil ujian
 $ ->
 	lulus = $('.L').length
 
