@@ -1,7 +1,13 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
+require './helpers/sinatra'
 
-class YourApp < Sinatra::Base
-	# start your sinatra code here
+class MainApp < Sinatra::Base
+	helpers Sinatra::MainHelpers
+  	register Sinatra::Flash
+
+	get '/' do
+		erb :main
+	end
 end
